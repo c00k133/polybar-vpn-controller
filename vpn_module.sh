@@ -88,9 +88,9 @@ vpn_report() {
 # continually reports connection status
 	if [ "$VPN_STATUS" = "$CONNECTED"  ]; then
 		if [ "$@" ] && [ "$1" == "--no-geoip" ]; then
-			country=$($VPN_GET_STATUS | awk 'tolower ($0) ~ /country/{print $2}')
-			city=$($VPN_GET_STATUS | awk 'tolower ($0) ~ /country/{print $2}')
-			echo " %{F$COLOR_CONNECTED}$city $country%{F-}"
+			ip_address=$(ip_address_lookup)
+			location="$(mullvad relay list | $(dirname $0)/get-location.py $ip_address)"
+			echo " %{F$COLOR_CONNECTED}$location%{F-}"
 		elif hash geoiplookup 2>/dev/null; then
 			ip_address=$(ip_address_lookup)
 			country=$(geoiplookup "$ip_address" | head -n1 | cut -c24-25)
