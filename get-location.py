@@ -13,6 +13,7 @@ for line in sys.stdin:
             city = city.split('(')[0].strip()
             country = country.split('(')[0].strip()
             print(f'{city}, {country}')
+            break
     elif line[0] == '\t':
         city = line
     else:
