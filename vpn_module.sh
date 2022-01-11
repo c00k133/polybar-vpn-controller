@@ -45,9 +45,9 @@ CONNECTED="connected"
 CONNECTING="connecting"
 
 ## [Set colors] (set each variable to nothing for default color)
-COLOR_CONNECTED="#00CC66"
-COLOR_CONNECTING="#FFFF00"
-COLOR_DISCONNECTED="#FF3300"
+COLOR_CONNECTED="${COLOR_CONNECTED:-#00CC66}"
+COLOR_CONNECTING="${COLOR_CONNECTING:-#FFFF00}"
+COLOR_DISCONNECTED="${COLOR_DISCONNECTED:-#FF3300}"
 
 ## [Set 8 favorite VPN locations]
 # These are passed to your VPN as `$VPNCOMMAND_RELAY_SET_LOCATION <input>`.
